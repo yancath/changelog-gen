@@ -1,5 +1,5 @@
-// array of features to be used later
-const features = [];
+// array of feats to be used later
+const feats = [];
 
 // array of chores to be used later
 const chores = [];
@@ -24,14 +24,14 @@ const currentVersion = Number(require("./package.json").version);
 const newVersion = currentVersion + 1;
 
 //formats it into DATE obj formats
-let newChangelog = `# Version ${newVersion} (${
+let updatedChangelog = `# Version ${newVersion} (${
   new Date().toISOString().split("T")[0]
 })\n\n`;
 
 // pushing changes to my github repository and formatting it by the conventional changelog formats
 commitsArray.forEach(commit => {
   if (commit.message.startsWith("feature: ")) {
-    features.push(
+    feats.push(
       `* ${commit.message.replace("feature: ", "")} ([${commit.sha.substring(
         0,
         6
@@ -53,21 +53,21 @@ commitsArray.forEach(commit => {
   }
 });
 
-// for titling of the CHANGELOG and making use of the array of features and chores done
-if (features.length) {
-  newChangelog += `## Features\n`;
-  features.forEach(feature => {
-    newChangelog += feature;
+// for titling of the CHANGELOG and making use of the array of feats and chores done
+if (feats.length) {
+  updatedChangelog += `## feats\n`;
+  feats.forEach(feature => {
+    updatedChangelog += feature;
   });
-  newChangelog += '\n';
+  updatedChangelog += '\n';
 }
 
 if (chores.length) {
-  newChangelog += `## Chores\n`;
+  updatedChangelog += `## Chores\n`;
   chores.forEach(chore => {
-    newChangelog += chore;
+    updatedChangelog += chore;
   });
-  newChangelog += '\n';
+  updatedChangelog += '\n';
 }
 
 // update package.json file for versioning
@@ -81,4 +81,4 @@ if (chores.length) {
 	child.execSync(`git tag -a -m "Tag for version ${newVersion}" version${newVersion}`);
 
 // out into the CHANGELOG.md file
-fs.writeFileSync("./CHANGELOG.md", `${newChangelog}${currentChangelog}`);
+fs.writeFileSync("./CHANGELOG.md", `${updatedChangelog}${currentChangelog}`);

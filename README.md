@@ -1,7 +1,9 @@
 # Changelog Generator
 
 ## Instructions
+NOTE: This is to be used with GitBash or any command line for GitHub
 
+Make a directory called changelog-gen and directly download the files in there
 
 ## Current Functionality
 As of the latest version (version 4), basic commits with messages attached are functional.  As well, tags are kept track of to ensure only the latest changes are added to the changelog instead of writing the entire output of ```git long``` with the appended changes. Titling is formatted and dated as well.
