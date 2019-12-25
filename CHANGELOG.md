@@ -1,3 +1,8 @@
+# Version 3 (2019-12-25)
+
+## Chores
+* Added a test text file ([b4e267](https://github.com/yancathe/changelog-gen/commit/b4e2671037ad491e657044bebf0df28523d7a957))
+
 # Version 2 (2019-12-25)
 
 ## Features
