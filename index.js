@@ -8,11 +8,11 @@ const chores = [];
 const child = require('child_process');
 const fs = require('fs');
 
-//this formats the tags by the SHA and the message for versioning
+//this formats the tags by its hash code and the message for versioning
 const latestTag = child.execSync('git describe --long').toString('utf-8').split('-')[0];
-const output = child
+const out = child
   .execSync(`git log ${latestTag}..HEAD --format=%B%H----DELIMITER----`)
-  .toString("utf-8");const commitsArray = output.split('----DELIMITER----\n').map(commit => {
+  .toString("utf-8");const commitsArray = out.split('----DELIMITER----\n').map(commit => {
 	const [message, sha] = commit.split('\n');
 
 	return { sha, message };
@@ -80,5 +80,5 @@ if (chores.length) {
 // tag the commit to make sure only recent changes were published in the CHANGELOG
 	child.execSync(`git tag -a -m "Tag for version ${newVersion}" version${newVersion}`);
 
-// output into the CHANGELOG.md file
+// out into the CHANGELOG.md file
 fs.writeFileSync("./CHANGELOG.md", `${newChangelog}${currentChangelog}`);
