@@ -5,8 +5,20 @@ NOTE: This is to be used with GitBash or any command line for GitHub
 
 Make a directory called changelog-gen and directly download the files in there
 
+Then open GitBash or any command line terminal of your choice and change directory
+```cd changelog-gen```
+
+If you make any changes, in the terminal you can write a message and push the changes
+For example, I added a test.txt file
+```git commit -m "chore: added a test text file"```
+
+```git push origin master```
+
 ## Current Functionality
-As of the latest version (version 4), basic commits with messages attached are functional.  As well, tags are kept track of to ensure only the latest changes are added to the changelog instead of writing the entire output of ```git long``` with the appended changes. Titling is formatted and dated as well.
+* Basic commits with messages attached are functional with keywords chore and feature
+* Tags are kept track of to ensure only the latest changes are added to the changelog instead of writing the entire output of ```git long``` with the appended changes.
+* Titling is formatted and dated as well.
+* index.js cannot compile, there are some bugs I need to fix
 
 ## Future Implementation
 * Fixing the versioning bug
